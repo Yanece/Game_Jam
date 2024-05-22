@@ -26,3 +26,35 @@ else
 {
 	sprite_index = sPlayer;
 }
+
+// Collision Horizontale
+
+if (place_meeting(x + hspeed, y, oMur))
+{
+	while (!place_meeting(x + sign(hspeed), y, oMur))
+	{
+		x = x + sign(hspeed);
+	}
+	hspeed = 0;
+}
+
+x = x + hspeed;
+
+// Collision Verticale
+
+if (place_meeting(x, y + vspeed, oMur))
+{
+	while (!place_meeting(x, y + sign(vspeed), oMur))
+	{
+		y = y + sign(vspeed);
+	}
+	vspeed = 0;
+}
+
+y = y + vspeed;
+
+// Collision Enemy
+/*if (place_meeting(x, y + 0.5, oEnemy))
+{
+	vspeed = -4;	
+}
