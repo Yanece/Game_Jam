@@ -2,19 +2,27 @@
 
 var press_right = keyboard_check(vk_right);
 var press_left = keyboard_check(vk_left);
-var press_jump = keyboard_check(vk_up);
+var press_jump = keyboard_check_pressed(vk_up);
 var press_attack = keyboard_check_pressed(vk_space);
 
 //Mouvements du personnage
 
 var move = press_right - press_left;
 hspeed = move *  walkspeed;
-vspeed = vspeed + grav;
 
-if (place_meeting(x, y + 1, oMur) && press_jump)
-{
-	vspeed = -4;
+if(isGrounded){
+	verticalSpeed = -(press_jump * 6);
+}else{
+	verticalSpeed += grav;
 }
+
+vspeed = verticalSpeed;
+show_debug_message($"vspeed after : {verticalSpeed}")
+
+//if (place_meeting(x, y + 1, oGround) && press_jump)
+//{
+//	vspeed = -6;
+//}
 
 // Animation
 if hspeed != 0
@@ -24,34 +32,37 @@ if hspeed != 0
 }
 else
 {
-	sprite_index = sPlayer;
+	sprite_index = sPlayer_idle;
 }
 
 // Collision Horizontale
 
-if (place_meeting(x + hspeed, y, oMur))
+if (place_meeting(x + hspeed, y, oSolid))
 {
-	while (!place_meeting(x + sign(hspeed), y, oMur))
+	while (!place_meeting(x + sign(hspeed), y, oSolid))
 	{
-		x = x + sign(hspeed);
+		x += sign(hspeed);
 	}
 	hspeed = 0;
 }
 
-x = x + hspeed;
+x += hspeed;
 
 // Collision Verticale
 
-if (place_meeting(x, y + vspeed, oMur))
+if (place_meeting(x, y + vspeed, oSolid))
 {
-	while (!place_meeting(x, y + sign(vspeed), oMur))
+	while (!place_meeting(x, y + sign(vspeed), oSolid))
 	{
-		y = y + sign(vspeed);
+		y += sign(vspeed);
 	}
 	vspeed = 0;
+	isGrounded = true;
+}else{
+	isGrounded = false;
 }
 
-y = y + vspeed;
+y += vspeed;
 
 // Collision Enemy
 /*if (place_meeting(x, y + 0.5, oEnemy))

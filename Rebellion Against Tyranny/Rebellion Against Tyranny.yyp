@@ -34,9 +34,13 @@
   },
   "name":"Rebellion Against Tyranny",
   "resources":[
+    {"id":{"name":"oBakground","path":"objects/oBakground/oBakground.yy",},},
+    {"id":{"name":"oSolid","path":"objects/oSolid/oSolid.yy",},},
+    {"id":{"name":"oGround","path":"objects/oGround/oGround.yy",},},
     {"id":{"name":"oMur","path":"objects/oMur/oMur.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"sBackground","path":"sprites/sBackground/sBackground.yy",},},
     {"id":{"name":"sMur","path":"sprites/sMur/sMur.yy",},},
     {"id":{"name":"sPlayer_attack","path":"sprites/sPlayer_attack/sPlayer_attack.yy",},},
     {"id":{"name":"sPlayer_idle","path":"sprites/sPlayer_idle/sPlayer_idle.yy",},},
