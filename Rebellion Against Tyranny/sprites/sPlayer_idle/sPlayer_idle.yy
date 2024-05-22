@@ -25,7 +25,7 @@
   ],
   "name":"sPlayer_idle",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"Sprites",
     "path":"folders/Sprites.yy",
@@ -52,7 +52,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":3.0,
-    "lockOrigin":true,
+    "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -83,8 +83,8 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":64,
-    "yorigin":47,
+    "xorigin":61,
+    "yorigin":53,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

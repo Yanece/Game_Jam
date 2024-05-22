@@ -11,13 +11,18 @@ var move = press_right - press_left;
 hspeed = move *  walkspeed;
 
 if(isGrounded){
-	verticalSpeed = -(press_jump * 6);
+	verticalSpeed = -(press_jump * 10);
 }else{
 	verticalSpeed += grav;
+	if(verticalSpeed > 10)
+	{
+		verticalSpeed = 10;
+	}
 }
 
+
 vspeed = verticalSpeed;
-show_debug_message($"vspeed after : {verticalSpeed}")
+
 
 //if (place_meeting(x, y + 1, oGround) && press_jump)
 //{
@@ -39,30 +44,35 @@ else
 
 if (place_meeting(x + hspeed, y, oSolid))
 {
-	while (!place_meeting(x + sign(hspeed), y, oSolid))
-	{
-		x += sign(hspeed);
-	}
+	//while (!place_meeting(x + sign(hspeed), y, oSolid))
+	//{
+	//	x += sign(hspeed);
+	//}
 	hspeed = 0;
 }
 
-x += hspeed;
+x += round(hspeed);
 
 // Collision Verticale
 
 if (place_meeting(x, y + vspeed, oSolid))
 {
-	while (!place_meeting(x, y + sign(vspeed), oSolid))
-	{
-		y += sign(vspeed);
-	}
+	//while (!place_meeting(x, y + sign(vspeed), oSolid))
+	//{
+	//	y += sign(vspeed);
+	//}
 	vspeed = 0;
+	verticalSpeed = 0;
 	isGrounded = true;
 }else{
 	isGrounded = false;
 }
 
-y += vspeed;
+show_debug_message($"vspeed after : {vspeed}")
+show_debug_message($"y after : {y}")
+
+y += round(vspeed);
+y = round(y);
 
 // Collision Enemy
 /*if (place_meeting(x, y + 0.5, oEnemy))
