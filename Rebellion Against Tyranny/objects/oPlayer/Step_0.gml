@@ -16,3 +16,13 @@ if (place_meeting(x, y + 1, oMur) && press_jump)
 	vspeed = -4;
 }
 
+// Animation
+if hspeed != 0
+{
+	sprite_index = sPlayer_run;
+	image_xscale = sign(hspeed);
+}
+else
+{
+	sprite_index = sPlayer;
+}
