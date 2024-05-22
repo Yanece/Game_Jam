@@ -18,13 +18,17 @@
   ],
   "ResourceOrderSettings":[
     {"name":"oBakground","order":2,"path":"objects/oBakground/oBakground.yy",},
-    {"name":"oSolid","order":4,"path":"objects/oSolid/oSolid.yy",},
+    {"name":"oSmoke","order":6,"path":"objects/oSmoke/oSmoke.yy",},
     {"name":"oGround","order":3,"path":"objects/oGround/oGround.yy",},
     {"name":"oMur","order":1,"path":"objects/oMur/oMur.yy",},
+    {"name":"oSoldier","order":5,"path":"objects/oSoldier/oSoldier.yy",},
+    {"name":"oSolid","order":4,"path":"objects/oSolid/oSolid.yy",},
     {"name":"sBackground","order":5,"path":"sprites/sBackground/sBackground.yy",},
     {"name":"sMur","order":4,"path":"sprites/sMur/sMur.yy",},
     {"name":"sPlayer_attack","order":3,"path":"sprites/sPlayer_attack/sPlayer_attack.yy",},
     {"name":"sPlayer_jump","order":2,"path":"sprites/sPlayer_jump/sPlayer_jump.yy",},
     {"name":"sPlayer_run","order":1,"path":"sprites/sPlayer_run/sPlayer_run.yy",},
+    {"name":"sSmoke","order":7,"path":"sprites/sSmoke/sSmoke.yy",},
+    {"name":"sSoldiers","order":6,"path":"sprites/sSoldiers/sSoldiers.yy",},
   ],
 }

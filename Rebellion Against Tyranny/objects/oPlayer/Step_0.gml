@@ -1,4 +1,4 @@
-// Controles du personnage (Récuperation des touches du clavier
+// Controles du personnage (Récuperation des touches du clavier)
 
 var press_right = keyboard_check(vk_right);
 var press_left = keyboard_check(vk_left);
@@ -36,7 +36,10 @@ else
 
 if (place_meeting(x + horizontalSpeed, y, oSolid))
 {
-
+	while (!place_meeting(x + sign(horizontalSpeed), y, oSolid))
+	{
+		x = x + sign(horizontalSpeed);
+	}
 	horizontalSpeed = 0;
 }
 
@@ -46,17 +49,19 @@ x += round(horizontalSpeed);
 
 if (place_meeting(x, y + verticalSpeed, oSolid))
 {
+	while (!place_meeting(x, y + sign(verticalSpeed), oSolid))
+	{
+		y = y + sign(verticalSpeed);
+	}
 	verticalSpeed = 0;
 	isGrounded = true;
 }
 
-show_debug_message($"vspeed after : {verticalSpeed}")
-show_debug_message($"y after : {y}")
-
 y += (verticalSpeed);
 
 // Collision Enemy
-/*if (place_meeting(x, y + 0.5, oEnemy))
+
+if (place_meeting(x, y + 0.5, oSoldier))
 {
 	verticalSpeed = -4;	
 }
