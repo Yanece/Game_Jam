@@ -10,7 +10,7 @@ var press_attack = keyboard_check_pressed(vk_space);
 var move = press_right - press_left;
 horizontalSpeed = move *  walkSpeed;
 
-if(isGrounded){
+if(isGrounded && press_jump){
 	verticalSpeed = -(press_jump * 10);
 	isGrounded = false;
 }else{
@@ -49,9 +49,6 @@ if (place_meeting(x, y + verticalSpeed, oSolid))
 	verticalSpeed = 0;
 	isGrounded = true;
 }
-
-show_debug_message($"vspeed after : {verticalSpeed}")
-show_debug_message($"y after : {y}")
 
 y += (verticalSpeed);
 
