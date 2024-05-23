@@ -18,13 +18,14 @@
   ],
   "ResourceOrderSettings":[
     {"name":"oBakground","order":2,"path":"objects/oBakground/oBakground.yy",},
-    {"name":"oTransition","order":8,"path":"objects/oTransition/oTransition.yy",},
+    {"name":"oSupport","order":9,"path":"objects/oSupport/oSupport.yy",},
     {"name":"oGround","order":3,"path":"objects/oGround/oGround.yy",},
     {"name":"oHealth","order":7,"path":"objects/oHealth/oHealth.yy",},
     {"name":"oMur","order":1,"path":"objects/oMur/oMur.yy",},
     {"name":"oSmoke","order":6,"path":"objects/oSmoke/oSmoke.yy",},
     {"name":"oSoldier","order":5,"path":"objects/oSoldier/oSoldier.yy",},
     {"name":"oSolid","order":4,"path":"objects/oSolid/oSolid.yy",},
+    {"name":"oTransition","order":8,"path":"objects/oTransition/oTransition.yy",},
     {"name":"Room2","order":1,"path":"rooms/Room2/Room2.yy",},
     {"name":"sBackground","order":5,"path":"sprites/sBackground/sBackground.yy",},
     {"name":"sHealth","order":8,"path":"sprites/sHealth/sHealth.yy",},
@@ -35,5 +36,6 @@
     {"name":"sPlayer_run","order":1,"path":"sprites/sPlayer_run/sPlayer_run.yy",},
     {"name":"sSmoke","order":7,"path":"sprites/sSmoke/sSmoke.yy",},
     {"name":"sSoldiers","order":6,"path":"sprites/sSoldiers/sSoldiers.yy",},
+    {"name":"sSupport","order":10,"path":"sprites/sSupport/sSupport.yy",},
   ],
 }
