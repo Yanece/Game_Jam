@@ -10,10 +10,11 @@ var press_attack = keyboard_check_pressed(vk_space);
 var move = press_right - press_left;
 horizontalSpeed = move *  walkSpeed;
 
-if(isGrounded){
+if(isGrounded && press_jump){
 	verticalSpeed = -(press_jump * 8);
 	isGrounded = false;
 }else{
+
 	verticalSpeed += grav;
 	if(verticalSpeed > 10)
 	{
@@ -29,7 +30,11 @@ if horizontalSpeed != 0
 }
 else
 {
-	sprite_index = sPlayer_idle;
+	if(isGrounded){
+		sprite_index = sPlayer_idle;
+	}else{
+		sprite_index = sPlayer_jump;
+	}
 }
 
 // Collision Horizontale
