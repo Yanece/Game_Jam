@@ -1,6 +1,7 @@
-hspeed = 0;
-vspeed = 0;
-grav = 0.1;
-walkspeed = 2;
-//global_hp = 4;
-//invincible = false;
+grav = 0.3;
+walkSpeed = 2;
+verticalSpeed = 0;
+horizontalSpeed = 0;
+isGrounded = false;
+global.hp = 10;
+invincible = false;

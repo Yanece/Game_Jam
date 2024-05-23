@@ -1,60 +1,72 @@
-// Controles du personnage (Récuperation des touches du clavier
+// Controles du personnage (Récuperation des touches du clavier)
 
 var press_right = keyboard_check(vk_right);
 var press_left = keyboard_check(vk_left);
-var press_jump = keyboard_check(vk_up);
+var press_jump = keyboard_check_pressed(vk_up);
 var press_attack = keyboard_check_pressed(vk_space);
 
 //Mouvements du personnage
 
 var move = press_right - press_left;
-hspeed = move *  walkspeed;
-vspeed = vspeed + grav;
+horizontalSpeed = move *  walkSpeed;
 
-if (place_meeting(x, y + 1, oMur) && press_jump)
-{
-	vspeed = -4;
+if(isGrounded && press_jump){
+	verticalSpeed = -(press_jump * 8);
+	isGrounded = false;
+}else{
+
+	verticalSpeed += grav;
+	if(verticalSpeed > 10)
+	{
+		verticalSpeed = 10;
+	}
 }
 
 // Animation
-if hspeed != 0
+if horizontalSpeed != 0
 {
 	sprite_index = sPlayer_run;
-	image_xscale = sign(hspeed);
+	image_xscale = sign(horizontalSpeed);
 }
 else
 {
-	sprite_index = sPlayer;
+	if(isGrounded){
+		sprite_index = sPlayer_idle;
+	}else{
+		sprite_index = sPlayer_jump;
+	}
 }
 
 // Collision Horizontale
 
-if (place_meeting(x + hspeed, y, oMur))
+if (place_meeting(x + horizontalSpeed, y, oSolid))
 {
-	while (!place_meeting(x + sign(hspeed), y, oMur))
+	while (!place_meeting(x + sign(horizontalSpeed), y, oSolid))
 	{
-		x = x + sign(hspeed);
+		x = x + sign(horizontalSpeed);
 	}
-	hspeed = 0;
+	horizontalSpeed = 0;
 }
 
-x = x + hspeed;
+x += round(horizontalSpeed);
 
 // Collision Verticale
 
-if (place_meeting(x, y + vspeed, oMur))
+if (place_meeting(x, y + verticalSpeed, oSolid))
 {
-	while (!place_meeting(x, y + sign(vspeed), oMur))
+	while (!place_meeting(x, y + sign(verticalSpeed), oSolid))
 	{
-		y = y + sign(vspeed);
+		y = y + sign(verticalSpeed);
 	}
-	vspeed = 0;
+	verticalSpeed = 0;
+	isGrounded = true;
 }
 
-y = y + vspeed;
+y += (verticalSpeed);
 
 // Collision Enemy
-/*if (place_meeting(x, y + 0.5, oEnemy))
+
+if (place_meeting(x, y + 0.5, oSoldier))
 {
-	vspeed = -4;	
+	verticalSpeed = -4;	
 }
