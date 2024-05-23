@@ -11,7 +11,7 @@ var move = press_right - press_left;
 horizontalSpeed = move *  walkSpeed;
 
 if(isGrounded){
-	verticalSpeed = -(press_jump * 10);
+	verticalSpeed = -(press_jump * 8);
 	isGrounded = false;
 }else{
 	verticalSpeed += grav;
